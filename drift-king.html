@@ -17,34 +17,39 @@ header {
   background: #1a1a1a;
 }
 
-.play-btn {
-  display: inline-block;
+.info {
   margin-top: 40px;
-  padding: 20px 30px;
-  background: #222;
-  color: white;
-  text-decoration: none;
-  border-radius: 12px;
-  font-size: 22px;
-  border: 1px solid #444;
 }
 
-.play-btn:hover {
+button {
+  padding: 15px 25px;
+  font-size: 18px;
+  background: #222;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
   background: #333;
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
   <h1>🚗 Drift King</h1>
-  <p>Click play to start the game</p>
+  <p>Play the game in a new tab</p>
 </header>
 
-<a class="play-btn" href="https://www.crazygames.com/game/drift-boss" target="_blank">
-  ▶ Play Game
-</a>
+<div class="info">
+  <button onclick="window.open('https://www.crazygames.com/game/drift-boss', '_blank')">
+    ▶ Play Game
+  </button>
+</div>
 
 </body>
 </html>
