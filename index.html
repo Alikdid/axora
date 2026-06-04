@@ -26,10 +26,6 @@ h1{
 }
 
 /* NAV */
-.nav{
-  margin-top:15px;
-}
-
 .nav button{
   background:#111827;
   color:white;
@@ -116,7 +112,6 @@ footer{
 <header>
   <h1>AXORA</h1>
 
-  <!-- NAV (FIX) -->
   <div class="nav">
     <button onclick="filter('all')">Home</button>
     <button onclick="filter('racing')">Racing</button>
@@ -124,13 +119,11 @@ footer{
     <button onclick="filter('puzzle')">Puzzle</button>
   </div>
 
-  <!-- SEARCH (FIX) -->
   <div class="search">
     <input id="search" onkeyup="searchGames()" placeholder="Search games...">
   </div>
 </header>
 
-<!-- GAMES -->
 <div class="games" id="gameGrid">
 
   <a class="game racing" href="drift-king.html">
@@ -166,27 +159,25 @@ footer{
 
 <script>
 
-/* SEARCH */
 function searchGames(){
   let input = document.getElementById("search").value.toLowerCase();
   let games = document.getElementsByClassName("game");
 
   for(let i=0;i<games.length;i++){
     let text = games[i].innerText.toLowerCase();
-    games[i].style.display = text.includes(input) ? "block" : "none";
+    games[i].style.display = text.includes(input) ? "inline-block" : "none";
   }
 }
 
-/* FILTER */
 function filter(type){
   let games = document.getElementsByClassName("game");
 
   for(let i=0;i<games.length;i++){
     if(type === "all"){
-      games[i].style.display = "block";
+      games[i].style.display = "inline-block";
     } else {
       games[i].style.display =
-        games[i].classList.contains(type) ? "block" : "none";
+        games[i].classList.contains(type) ? "inline-block" : "none";
     }
   }
 }
