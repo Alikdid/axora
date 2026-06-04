@@ -5,31 +5,29 @@
 
 <style>
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
   background: #111;
   color: white;
-  text-align: center;
-  margin: 0;
 }
 
 header {
   background: #1a1a1a;
   padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #333;
 }
 
 h1 {
   margin: 0;
-  font-size: 50px;
+  font-size: 55px;
 }
 
-input {
-  padding: 12px;
-  width: 300px;
-  border-radius: 8px;
-  border: none;
+.nav {
+  margin-top: 15px;
 }
 
-button {
+.nav button {
   background: #222;
   color: white;
   border: 1px solid #444;
@@ -39,95 +37,111 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.nav button:hover {
   background: #333;
 }
 
+.search {
+  text-align: center;
+  margin: 25px;
+}
+
+.search input {
+  width: 350px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+}
+
+.section-title {
+  margin-left: 25px;
+  font-size: 28px;
+}
+
 .games {
-  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
 }
 
 .game-box {
   background: #222;
   width: 220px;
-  padding: 20px;
-  margin: 10px;
-  display: inline-block;
+  height: 140px;
   border-radius: 12px;
   text-decoration: none;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 22px;
 }
 
 .game-box:hover {
   background: #333;
 }
-</style>
 
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #1a1a1a;
+  margin-top: 30px;
+  border-top: 1px solid #333;
+}
+</style>
 </head>
+
 <body>
 
 <header>
   <h1>AXORA</h1>
+  <p>Play Free Online Games</p>
 
-  <div>
+  <div class="nav">
     <button>Home</button>
     <button>New Games</button>
     <button>Trending</button>
     <button>Categories</button>
   </div>
-
-  <p>Play Free Online Games</p>
 </header>
 
-<br>
+<div class="search">
+  <input type="text" placeholder="Search games...">
+</div>
 
-<input type="text" placeholder="Search games...">
-
-<br><br>
-
-<button>Action</button>
-<button>Racing</button>
-<button>Puzzle</button>
-<button>Multiplayer</button>
-<button>Adventure</button>
+<h2 class="section-title">🔥 Featured Games</h2>
 
 <div class="games">
-
-<a href="#" class="game-box">
-  🚗<br><br>
-  Racing Game
-</a>
-
-<a href="#" class="game-box">
-  🧩<br><br>
-  Puzzle Game
-</a>
-
-<a href="#" class="game-box">
-  ⚔️<br><br>
-  Adventure Game
-</a>
-
+  <a href="#" class="game-box">🏎️ Drift King</a>
+  <a href="#" class="game-box">🔫 Battle Arena</a>
+  <a href="#" class="game-box">🧩 Puzzle Master</a>
+  <a href="#" class="game-box">⚔️ Adventure Quest</a>
 </div>
-<h2>🔥 Trending Games</h2>
+
+<h2 class="section-title">📈 Trending Games</h2>
 
 <div class="games">
-
-<a href="#" class="game-box">
-  🏎️<br><br>
-  Drift King
-</a>
-
-<a href="#" class="game-box">
-  🔫<br><br>
-  Battle Arena
-</a>
-
-<a href="#" class="game-box">
-  🧠<br><br>
-  Brain Master
-</a>
-
+  <a href="#" class="game-box">🚗 Racing Pro</a>
+  <a href="#" class="game-box">🧠 Brain Master</a>
+  <a href="#" class="game-box">🏹 Archer Hero</a>
+  <a href="#" class="game-box">🎯 Target Rush</a>
 </div>
+
+<h2 class="section-title">🆕 New Games</h2>
+
+<div class="games">
+  <a href="#" class="game-box">🌌 Space Run</a>
+  <a href="#" class="game-box">👾 Pixel Attack</a>
+  <a href="#" class="game-box">🏝️ Island Survival</a>
+  <a href="#" class="game-box">🚀 Rocket Escape</a>
+</div>
+
+<footer>
+  © 2026 Axora - Play Free Online Games
+</footer>
+
 </body>
 </html>
