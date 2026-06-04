@@ -4,119 +4,117 @@
 <title>Axora</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial;
-  background: #070b14;
-  color: white;
+body{
+  margin:0;
+  font-family:Arial;
+  background:#050814;
+  color:white;
 }
 
-/* TOP BAR */
-header {
-  background: linear-gradient(90deg, #0f172a, #111827);
-  padding: 25px;
-  text-align: center;
-  border-bottom: 1px solid #1f2937;
+/* HEADER */
+header{
+  background:linear-gradient(90deg,#0b1220,#0f172a);
+  padding:30px;
+  text-align:center;
+  border-bottom:1px solid #1f2937;
 }
 
-h1 {
-  margin: 0;
-  font-size: 64px;
-  letter-spacing: 3px;
+h1{
+  margin:0;
+  font-size:65px;
+  letter-spacing:4px;
 }
 
-/* NAV */
-.nav {
-  margin-top: 10px;
+.nav{
+  margin-top:12px;
 }
 
-.nav button {
-  background: #111827;
-  color: white;
-  border: 1px solid #374151;
-  padding: 10px 15px;
-  margin: 5px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.2s;
+.nav button{
+  background:#0f172a;
+  color:white;
+  border:1px solid #334155;
+  padding:10px 15px;
+  margin:5px;
+  border-radius:10px;
+  cursor:pointer;
 }
 
-.nav button:hover {
-  background: #1f2937;
-  border-color: #60a5fa;
+.nav button:hover{
+  border-color:#60a5fa;
 }
 
 /* SEARCH */
-.search {
-  text-align: center;
-  margin: 25px;
+.search{
+  text-align:center;
+  margin:25px;
 }
 
-.search input {
-  width: 380px;
-  padding: 14px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  font-size: 16px;
+.search input{
+  width:400px;
+  max-width:90%;
+  padding:14px;
+  border-radius:10px;
+  border:none;
+  outline:none;
+  font-size:16px;
 }
 
-/* SECTION TITLE */
-.title {
-  font-size: 28px;
-  margin: 20px 30px;
+/* TITLE */
+.title{
+  font-size:28px;
+  margin:20px 30px;
 }
 
 /* GRID */
-.games {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 18px;
-  padding: 20px;
+.games{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  padding:20px;
 }
 
-/* GAME CARD */
-.game {
-  background: #0f172a;
-  border-radius: 15px;
-  overflow: hidden;
-  text-decoration: none;
-  color: white;
-  border: 1px solid #1f2937;
-  transition: 0.25s;
+/* CARD */
+.game{
+  background:#0f172a;
+  border:1px solid #1f2937;
+  border-radius:16px;
+  text-decoration:none;
+  color:white;
+  overflow:hidden;
+  transition:0.2s;
 }
 
-.game:hover {
-  transform: scale(1.05);
-  border-color: #60a5fa;
+.game:hover{
+  transform:scale(1.05);
+  border-color:#38bdf8;
 }
 
-/* IMAGE (STABIL – INGA EXTERNA LÄNKAR) */
-.thumb {
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  background: #111827;
+/* THUMB (100% STABIL) */
+.thumb{
+  height:120px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:42px;
+  background:#0b1220;
 }
 
 /* TEXT */
-.game div {
-  padding: 12px;
-  text-align: center;
-  font-weight: bold;
+.game div{
+  padding:12px;
+  text-align:center;
+  font-weight:bold;
 }
 
 /* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-  background: #0f172a;
-  border-top: 1px solid #1f2937;
-  font-size: 12px;
-  opacity: 0.7;
+footer{
+  text-align:center;
+  padding:25px;
+  margin-top:40px;
+  background:#0f172a;
+  border-top:1px solid #1f2937;
+  font-size:12px;
+  opacity:0.7;
 }
 </style>
 
@@ -150,7 +148,7 @@ footer {
 
   <a class="game" href="https://www.crazygames.com" target="_blank">
     <div class="thumb">🏎️</div>
-    <div>Racing Hub</div>
+    <div>Racing Games</div>
   </a>
 
   <a class="game" href="https://www.crazygames.com" target="_blank">
@@ -171,7 +169,7 @@ footer {
 </div>
 
 <footer>
-  © 2026 Axora - Play Free Games
+  © 2026 Axora - Play Free Online Games
 </footer>
 
 </body>
