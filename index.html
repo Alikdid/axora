@@ -7,10 +7,11 @@
 body{
   margin:0;
   font-family:Arial;
-  background:#050814;
+  background:#050816;
   color:white;
 }
 
+/* HEADER */
 header{
   background:#0f172a;
   padding:25px;
@@ -21,8 +22,10 @@ header{
 h1{
   margin:0;
   font-size:60px;
+  letter-spacing:3px;
 }
 
+/* NAV */
 .nav button{
   background:#111827;
   color:white;
@@ -37,30 +40,29 @@ h1{
   border-color:#38bdf8;
 }
 
+/* SEARCH */
 .search{
   text-align:center;
   margin:20px;
 }
 
 .search input{
-  width:360px;
+  width:380px;
   padding:12px;
   border-radius:10px;
   border:none;
+  outline:none;
 }
 
-.title{
-  font-size:26px;
-  margin:20px;
-}
-
+/* GRID */
 .games{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:15px;
   padding:20px;
 }
 
+/* CARD */
 .game{
   background:#0f172a;
   border:1px solid #1f2937;
@@ -73,15 +75,16 @@ h1{
 
 .game:hover{
   transform:scale(1.05);
-  border-color:#38bdf8;
+  border-color:#60a5fa;
 }
 
+/* ICON */
 .thumb{
   height:120px;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:40px;
+  font-size:42px;
   background:#0b1220;
 }
 
@@ -91,10 +94,12 @@ h1{
   font-weight:bold;
 }
 
+/* HIDE */
 .hidden{
   display:none;
 }
 
+/* FOOTER */
 footer{
   text-align:center;
   padding:20px;
@@ -114,8 +119,8 @@ footer{
 
   <div class="nav">
     <button onclick="filter('all')">Home</button>
-    <button onclick="filter('action')">Action</button>
     <button onclick="filter('racing')">Racing</button>
+    <button onclick="filter('action')">Action</button>
     <button onclick="filter('puzzle')">Puzzle</button>
   </div>
 </header>
@@ -124,37 +129,44 @@ footer{
   <input id="search" onkeyup="searchGames()" placeholder="Search games...">
 </div>
 
-<div class="title">🔥 Games</div>
+<div class="games" id="gameGrid">
 
-<div class="games">
+  <!-- GAME DATABASE (REAL SYSTEM) -->
 
   <a class="game racing" href="drift-king.html">
     <div class="thumb">🚗</div>
-    <div>Drift Boss</div>
+    <div>Drift King</div>
   </a>
 
-  <a class="game racing" href="https://www.crazygames.com/game/madalin-stunt-cars-2" target="_blank">
+  <a class="game racing" href="https://www.crazygames.com/t/racing" target="_blank">
     <div class="thumb">🏎️</div>
-    <div>Stunt Cars</div>
+    <div>Racing Hub</div>
   </a>
 
-  <a class="game action" href="https://https://www.crazygames.com/game/war-brokers" target="_blank">
+  <a class="game action" href="https://www.crazygames.com/t/shooting" target="_blank">
     <div class="thumb">🔫</div>
-    <div>War Brokers</div>
+    <div>Shooting Hub</div>
   </a>
 
-  <a class="game puzzle" href="https://www.crazygames.com/game/2048" target="_blank">
+  <a class="game puzzle" href="https://www.crazygames.com/t/puzzle" target="_blank">
     <div class="thumb">🧠</div>
-    <div>2048</div>
+    <div>Puzzle Hub</div>
+  </a>
+
+  <a class="game action" href="https://www.crazygames.com/t/action" target="_blank">
+    <div class="thumb">⚔️</div>
+    <div>Action Hub</div>
   </a>
 
 </div>
 
 <footer>
-  © 2026 Axora
+  © 2026 Axora — Real Game System
 </footer>
 
 <script>
+
+/* SEARCH SYSTEM */
 function searchGames(){
   let input=document.getElementById("search").value.toLowerCase();
   let games=document.getElementsByClassName("game");
@@ -165,6 +177,7 @@ function searchGames(){
   }
 }
 
+/* FILTER SYSTEM */
 function filter(type){
   let games=document.getElementsByClassName("game");
 
@@ -176,6 +189,7 @@ function filter(type){
     }
   }
 }
+
 </script>
 
 </body>
