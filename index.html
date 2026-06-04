@@ -7,68 +7,77 @@
 body{
   margin:0;
   font-family:Arial;
-  background:#050814;
+  background:#0b1020;
   color:white;
 }
 
+/* HEADER */
 header{
-  background:#0f172a;
-  padding:25px;
+  background:#111827;
+  padding:20px;
   text-align:center;
 }
 
 h1{
   margin:0;
-  font-size:60px;
+  font-size:50px;
 }
 
+/* BUTTONS */
 .nav{
   margin-top:10px;
 }
 
 .nav button{
-  background:#111827;
+  background:#1f2937;
   color:white;
-  border:1px solid #334155;
+  border:1px solid #374151;
   padding:10px 14px;
   margin:5px;
-  border-radius:10px;
+  border-radius:8px;
   cursor:pointer;
 }
 
+/* SEARCH */
 .search{
   text-align:center;
   margin:20px;
 }
 
 .search input{
-  width:360px;
-  padding:12px;
-  border-radius:10px;
+  width:300px;
+  padding:10px;
+  border-radius:8px;
   border:none;
-  outline:none;
 }
 
+/* GRID */
 .games{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
   gap:15px;
   padding:20px;
 }
 
+/* CARD */
 .game{
-  background:#0f172a;
-  border:1px solid #1f2937;
-  border-radius:15px;
+  width:180px;
+  background:#111827;
+  border:1px solid #374151;
+  border-radius:10px;
   padding:15px;
   text-align:center;
+  cursor:pointer;
 }
 
+/* ICON */
 .thumb{
   font-size:40px;
   margin-bottom:10px;
 }
 
+/* HIDE */
 .hidden{
   display:none;
 }
@@ -82,10 +91,10 @@ h1{
   <h1>AXORA</h1>
 
   <div class="nav">
-    <button data-filter="all">Home</button>
-    <button data-filter="racing">Racing</button>
-    <button data-filter="action">Action</button>
-    <button data-filter="puzzle">Puzzle</button>
+    <button data="all">Home</button>
+    <button data="racing">Racing</button>
+    <button data="action">Action</button>
+    <button data="puzzle">Puzzle</button>
   </div>
 </header>
 
@@ -102,56 +111,48 @@ h1{
 
   <div class="game racing">
     <div class="thumb">🏎️</div>
-    Stunt Cars
+    Racing Game
   </div>
 
   <div class="game action">
     <div class="thumb">🔫</div>
-    Action Pack
+    Action Game
   </div>
 
   <div class="game puzzle">
     <div class="thumb">🧠</div>
-    Puzzle Pack
+    Puzzle Game
   </div>
 
 </div>
 
 <script>
-// SEARCH
-const search = document.getElementById("search");
+const buttons = document.querySelectorAll(".nav button");
 const games = document.querySelectorAll(".game");
+const search = document.getElementById("search");
 
-search.addEventListener("input", () => {
+// FILTER
+buttons.forEach(btn=>{
+  btn.onclick = ()=>{
+    const type = btn.getAttribute("data");
+
+    games.forEach(g=>{
+      if(type==="all") g.style.display="block";
+      else g.style.display = g.classList.contains(type) ? "block" : "none";
+    });
+  }
+});
+
+// SEARCH
+search.oninput = ()=>{
   const value = search.value.toLowerCase();
 
-  games.forEach(game => {
-    game.style.display =
-      game.innerText.toLowerCase().includes(value)
+  games.forEach(g=>{
+    g.style.display = g.innerText.toLowerCase().includes(value)
       ? "block"
       : "none";
   });
-});
-
-// FILTER BUTTONS (SAFE METHOD)
-const buttons = document.querySelectorAll(".nav button");
-
-buttons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const filter = btn.dataset.filter;
-
-    games.forEach(game => {
-      if(filter === "all"){
-        game.style.display = "block";
-      } else {
-        game.style.display =
-          game.classList.contains(filter)
-          ? "block"
-          : "none";
-      }
-    });
-  });
-});
+};
 </script>
 
 </body>
