@@ -26,6 +26,10 @@ h1{
 }
 
 /* NAV */
+.nav{
+  margin-top:15px;
+}
+
 .nav button{
   background:#111827;
   color:white;
@@ -94,11 +98,6 @@ h1{
   font-weight:bold;
 }
 
-/* HIDE */
-.hidden{
-  display:none;
-}
-
 /* FOOTER */
 footer{
   text-align:center;
@@ -117,7 +116,22 @@ footer{
 <header>
   <h1>AXORA</h1>
 
-  <div class="games" id="gameGrid">
+  <!-- NAV (FIX) -->
+  <div class="nav">
+    <button onclick="filter('all')">Home</button>
+    <button onclick="filter('racing')">Racing</button>
+    <button onclick="filter('action')">Action</button>
+    <button onclick="filter('puzzle')">Puzzle</button>
+  </div>
+
+  <!-- SEARCH (FIX) -->
+  <div class="search">
+    <input id="search" onkeyup="searchGames()" placeholder="Search games...">
+  </div>
+</header>
+
+<!-- GAMES -->
+<div class="games" id="gameGrid">
 
   <a class="game racing" href="drift-king.html">
     <div class="thumb">🚗</div>
@@ -152,26 +166,27 @@ footer{
 
 <script>
 
-/* SEARCH SYSTEM */
+/* SEARCH */
 function searchGames(){
-  let input=document.getElementById("search").value.toLowerCase();
-  let games=document.getElementsByClassName("game");
+  let input = document.getElementById("search").value.toLowerCase();
+  let games = document.getElementsByClassName("game");
 
   for(let i=0;i<games.length;i++){
-    let text=games[i].innerText.toLowerCase();
-    games[i].style.display=text.includes(input)?"block":"none";
+    let text = games[i].innerText.toLowerCase();
+    games[i].style.display = text.includes(input) ? "block" : "none";
   }
 }
 
-/* FILTER SYSTEM */
+/* FILTER */
 function filter(type){
-  let games=document.getElementsByClassName("game");
+  let games = document.getElementsByClassName("game");
 
   for(let i=0;i<games.length;i++){
-    if(type==="all"){
-      games[i].style.display="block";
+    if(type === "all"){
+      games[i].style.display = "block";
     } else {
-      games[i].style.display=games[i].classList.contains(type)?"block":"none";
+      games[i].style.display =
+        games[i].classList.contains(type) ? "block" : "none";
     }
   }
 }
