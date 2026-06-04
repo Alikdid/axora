@@ -11,73 +11,60 @@ body{
   color:white;
 }
 
-/* HEADER */
 header{
-  background:linear-gradient(90deg,#0b1220,#0f172a);
-  padding:30px;
+  background:#0f172a;
+  padding:25px;
   text-align:center;
   border-bottom:1px solid #1f2937;
 }
 
 h1{
   margin:0;
-  font-size:65px;
-  letter-spacing:4px;
-}
-
-.nav{
-  margin-top:12px;
+  font-size:60px;
 }
 
 .nav button{
-  background:#0f172a;
+  background:#111827;
   color:white;
   border:1px solid #334155;
-  padding:10px 15px;
+  padding:10px 14px;
   margin:5px;
   border-radius:10px;
   cursor:pointer;
 }
 
 .nav button:hover{
-  border-color:#60a5fa;
+  border-color:#38bdf8;
 }
 
-/* SEARCH */
 .search{
   text-align:center;
-  margin:25px;
+  margin:20px;
 }
 
 .search input{
-  width:400px;
-  max-width:90%;
-  padding:14px;
+  width:360px;
+  padding:12px;
   border-radius:10px;
   border:none;
-  outline:none;
-  font-size:16px;
 }
 
-/* TITLE */
 .title{
-  font-size:28px;
-  margin:20px 30px;
+  font-size:26px;
+  margin:20px;
 }
 
-/* GRID */
 .games{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
   padding:20px;
 }
 
-/* CARD */
 .game{
   background:#0f172a;
   border:1px solid #1f2937;
-  border-radius:16px;
+  border-radius:15px;
   text-decoration:none;
   color:white;
   overflow:hidden;
@@ -89,30 +76,30 @@ h1{
   border-color:#38bdf8;
 }
 
-/* THUMB (100% STABIL) */
 .thumb{
   height:120px;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:42px;
+  font-size:40px;
   background:#0b1220;
 }
 
-/* TEXT */
 .game div{
-  padding:12px;
+  padding:10px;
   text-align:center;
   font-weight:bold;
 }
 
-/* FOOTER */
+.hidden{
+  display:none;
+}
+
 footer{
   text-align:center;
-  padding:25px;
-  margin-top:40px;
+  padding:20px;
+  margin-top:30px;
   background:#0f172a;
-  border-top:1px solid #1f2937;
   font-size:12px;
   opacity:0.7;
 }
@@ -126,51 +113,70 @@ footer{
   <h1>AXORA</h1>
 
   <div class="nav">
-    <button>Home</button>
-    <button>Trending</button>
-    <button>New</button>
-    <button>Categories</button>
+    <button onclick="filter('all')">Home</button>
+    <button onclick="filter('action')">Action</button>
+    <button onclick="filter('racing')">Racing</button>
+    <button onclick="filter('puzzle')">Puzzle</button>
   </div>
 </header>
 
 <div class="search">
-  <input type="text" placeholder="Search games...">
+  <input id="search" onkeyup="searchGames()" placeholder="Search games...">
 </div>
 
-<div class="title">🔥 Featured Games</div>
+<div class="title">🔥 Games</div>
 
 <div class="games">
 
-  <a class="game" href="drift-king.html">
+  <a class="game racing" href="drift-king.html">
     <div class="thumb">🚗</div>
-    <div>Drift King</div>
+    <div>Drift Boss</div>
   </a>
 
-  <a class="game" href="https://www.crazygames.com" target="_blank">
+  <a class="game racing" href="https://www.crazygames.com/game/madalin-stunt-cars-2" target="_blank">
     <div class="thumb">🏎️</div>
-    <div>Racing Games</div>
+    <div>Stunt Cars</div>
   </a>
 
-  <a class="game" href="https://www.crazygames.com" target="_blank">
+  <a class="game action" href="https://www.crazygames.com/game/warbrokers" target="_blank">
     <div class="thumb">🔫</div>
-    <div>Action Games</div>
+    <div>War Brokers</div>
   </a>
 
-  <a class="game" href="https://www.crazygames.com" target="_blank">
+  <a class="game puzzle" href="https://www.crazygames.com/game/2048" target="_blank">
     <div class="thumb">🧠</div>
-    <div>Puzzle Games</div>
-  </a>
-
-  <a class="game" href="https://www.crazygames.com" target="_blank">
-    <div class="thumb">⚔️</div>
-    <div>Adventure</div>
+    <div>2048</div>
   </a>
 
 </div>
 
 <footer>
-  © 2026 Axora - Play Free Online Games
+  © 2026 Axora
 </footer>
+
+<script>
+function searchGames(){
+  let input=document.getElementById("search").value.toLowerCase();
+  let games=document.getElementsByClassName("game");
+
+  for(let i=0;i<games.length;i++){
+    let text=games[i].innerText.toLowerCase();
+    games[i].style.display=text.includes(input)?"block":"none";
+  }
+}
+
+function filter(type){
+  let games=document.getElementsByClassName("game");
+
+  for(let i=0;i<games.length;i++){
+    if(type==="all"){
+      games[i].style.display="block";
+    } else {
+      games[i].style.display=games[i].classList.contains(type)?"block":"none";
+    }
+  }
+}
+</script>
 
 </body>
 </html>
