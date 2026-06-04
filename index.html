@@ -7,69 +7,106 @@
 body{
   margin:0;
   font-family:Arial;
-  background:#0b1020;
+  background:#050816;
   color:white;
 }
 
+/* HEADER */
 header{
-  background:#111827;
-  padding:20px;
+  background:#0f172a;
+  padding:25px;
   text-align:center;
+  border-bottom:1px solid #1f2937;
 }
 
 h1{
   margin:0;
-  font-size:45px;
+  font-size:60px;
+  letter-spacing:3px;
 }
 
+/* NAV */
 .nav button{
-  background:#1f2937;
+  background:#111827;
   color:white;
-  border:1px solid #374151;
+  border:1px solid #334155;
   padding:10px 14px;
   margin:5px;
-  border-radius:8px;
+  border-radius:10px;
   cursor:pointer;
 }
 
+.nav button:hover{
+  border-color:#38bdf8;
+}
+
+/* SEARCH */
 .search{
   text-align:center;
   margin:20px;
 }
 
 .search input{
-  width:300px;
-  padding:10px;
-  border-radius:8px;
+  width:380px;
+  padding:12px;
+  border-radius:10px;
   border:none;
+  outline:none;
 }
 
+/* GRID */
 .games{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
   padding:20px;
 }
 
+/* CARD */
 .game{
-  width:160px;
-  background:#111827;
-  padding:10px;
-  border-radius:10px;
-  text-align:center;
-  border:1px solid #374151;
+  background:#0f172a;
+  border:1px solid #1f2937;
+  border-radius:15px;
+  text-decoration:none;
+  color:white;
+  overflow:hidden;
+  transition:0.2s;
 }
 
+.game:hover{
+  transform:scale(1.05);
+  border-color:#60a5fa;
+}
+
+/* ICON */
 .thumb{
-  font-size:40px;
-  margin-bottom:10px;
+  height:120px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:42px;
+  background:#0b1220;
 }
 
-#debug{
+.game div{
+  padding:10px;
   text-align:center;
-  color:lime;
+  font-weight:bold;
+}
+
+/* HIDE */
+.hidden{
+  display:none;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  margin-top:30px;
+  background:#0f172a;
   font-size:12px;
+  opacity:0.7;
 }
 </style>
 
@@ -88,66 +125,70 @@ h1{
   </div>
 </header>
 
-<div id="debug">JS STATUS: LOADING...</div>
-
 <div class="search">
-  <input id="search" placeholder="Search games...">
+  <input id="search" onkeyup="searchGames()" placeholder="Search games...">
 </div>
 
-<div class="games">
+<div class="games" id="gameGrid">
 
-  <div class="game racing">
+  <!-- GAME DATABASE (REAL SYSTEM) -->
+
+  <a class="game racing" href="drift-king.html">
     <div class="thumb">🚗</div>
-    Drift Boss
-  </div>
+    <div>Drift King</div>
+  </a>
 
-  <div class="game racing">
+  <a class="game racing" href="https://www.crazygames.com/t/racing" target="_blank">
     <div class="thumb">🏎️</div>
-    Racing Game
-  </div>
+    <div>Racing Hub</div>
+  </a>
 
-  <div class="game action">
+  <a class="game action" href="https://www.crazygames.com/t/shooting" target="_blank">
     <div class="thumb">🔫</div>
-    Action Game
-  </div>
+    <div>Shooting Hub</div>
+  </a>
 
-  <div class="game puzzle">
+  <a class="game puzzle" href="https://www.crazygames.com/t/puzzle" target="_blank">
     <div class="thumb">🧠</div>
-    Puzzle Game
-  </div>
+    <div>Puzzle Hub</div>
+  </a>
+
+  <a class="game action" href="https://www.crazygames.com/t/action" target="_blank">
+    <div class="thumb">⚔️</div>
+    <div>Action Hub</div>
+  </a>
 
 </div>
+
+<footer>
+  © 2026 Axora — Real Game System
+</footer>
 
 <script>
 
-document.getElementById("debug").innerText = "JS STATUS: WORKING";
-
-// FILTER
-function filter(type){
-  console.log("filter:", type);
-
-  let games = document.getElementsByClassName("game");
+/* SEARCH SYSTEM */
+function searchGames(){
+  let input=document.getElementById("search").value.toLowerCase();
+  let games=document.getElementsByClassName("game");
 
   for(let i=0;i<games.length;i++){
-    if(type === "all"){
-      games[i].style.display = "block";
-    } else {
-      games[i].style.display =
-        games[i].classList.contains(type) ? "block" : "none";
-    }
+    let text=games[i].innerText.toLowerCase();
+    games[i].style.display=text.includes(input)?"block":"none";
   }
 }
 
-// SEARCH
-document.getElementById("search").addEventListener("input", function(){
-  let value = this.value.toLowerCase();
-  let games = document.getElementsByClassName("game");
+/* FILTER SYSTEM */
+function filter(type){
+  let games=document.getElementsByClassName("game");
 
   for(let i=0;i<games.length;i++){
-    let text = games[i].innerText.toLowerCase();
-    games[i].style.display = text.includes(value) ? "block" : "none";
+    if(type==="all"){
+      games[i].style.display="block";
+    } else {
+      games[i].style.display=games[i].classList.contains(type)?"block":"none";
+    }
   }
-});
+}
 
 </script>
 
