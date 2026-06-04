@@ -7,20 +7,21 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #111;
+  background: #0f0f0f;
   color: white;
 }
 
 header {
   background: #1a1a1a;
-  padding: 20px;
+  padding: 25px;
   text-align: center;
   border-bottom: 1px solid #333;
 }
 
 h1 {
   margin: 0;
-  font-size: 55px;
+  font-size: 60px;
+  letter-spacing: 2px;
 }
 
 .nav {
@@ -32,8 +33,8 @@ h1 {
   color: white;
   border: 1px solid #444;
   padding: 10px 15px;
-  border-radius: 8px;
   margin: 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -47,15 +48,19 @@ h1 {
 }
 
 .search input {
-  width: 350px;
+  width: 320px;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: none;
 }
 
-.section-title {
-  margin-left: 25px;
-  font-size: 28px;
+.section {
+  padding: 10px 20px;
+}
+
+.title {
+  font-size: 24px;
+  margin: 20px 0 10px;
 }
 
 .games {
@@ -63,47 +68,52 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  padding: 20px;
 }
 
-.game-box {
+.game {
+  width: 200px;
+  height: 130px;
   background: #222;
-  width: 220px;
-  height: 140px;
   border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 22px;
+  transition: 0.2s;
 }
 
-.game-box:hover {
+.game:hover {
+  transform: scale(1.05);
   background: #333;
+}
+
+.small {
+  font-size: 12px;
+  opacity: 0.7;
 }
 
 footer {
   text-align: center;
-  padding: 25px;
+  padding: 20px;
   background: #1a1a1a;
-  margin-top: 30px;
+  margin-top: 40px;
   border-top: 1px solid #333;
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
   <h1>AXORA</h1>
-  <p>Play Free Online Games</p>
 
   <div class="nav">
     <button>Home</button>
-    <button>New Games</button>
     <button>Trending</button>
+    <button>New</button>
     <button>Categories</button>
   </div>
 </header>
@@ -112,35 +122,54 @@ footer {
   <input type="text" placeholder="Search games...">
 </div>
 
-<h2 class="section-title">🔥 Featured Games</h2>
+<div class="section">
+  <div class="title">🔥 Featured Games</div>
 
-<div class="games">
- <a href="drift-king.html" class="game-box">🏎️ Drift King</a>
-  <a href="#" class="game-box">🔫 Battle Arena</a>
-  <a href="#" class="game-box">🧩 Puzzle Master</a>
-  <a href="#" class="game-box">⚔️ Adventure Quest</a>
+  <div class="games">
+
+    <a class="game" href="drift-king.html">
+      🚗
+      <div>Drift King</div>
+      <div class="small">Play now</div>
+    </a>
+
+    <a class="game" href="https://www.crazygames.com/game/battle-royale" target="_blank">
+      🔫
+      <div>Battle Royale</div>
+      <div class="small">External</div>
+    </a>
+
+    <a class="game" href="https://www.crazygames.com/game/puzzle" target="_blank">
+      🧠
+      <div>Puzzle Game</div>
+      <div class="small">External</div>
+    </a>
+
+  </div>
 </div>
 
-<h2 class="section-title">📈 Trending Games</h2>
+<div class="section">
+  <div class="title">🔥 Trending Games</div>
 
-<div class="games">
-  <a href="#" class="game-box">🚗 Racing Pro</a>
-  <a href="#" class="game-box">🧠 Brain Master</a>
-  <a href="#" class="game-box">🏹 Archer Hero</a>
-  <a href="#" class="game-box">🎯 Target Rush</a>
-</div>
+  <div class="games">
 
-<h2 class="section-title">🆕 New Games</h2>
+    <a class="game" href="https://www.crazygames.com" target="_blank">
+      🏎️
+      <div>Racing Hub</div>
+      <div class="small">Play games</div>
+    </a>
 
-<div class="games">
-  <a href="#" class="game-box">🌌 Space Run</a>
-  <a href="#" class="game-box">👾 Pixel Attack</a>
-  <a href="#" class="game-box">🏝️ Island Survival</a>
-  <a href="#" class="game-box">🚀 Rocket Escape</a>
+    <a class="game" href="https://www.crazygames.com" target="_blank">
+      ⚔️
+      <div>Action Hub</div>
+      <div class="small">Play games</div>
+    </a>
+
+  </div>
 </div>
 
 <footer>
-  © 2026 Axora - Play Free Online Games
+  © 2026 Axora - Free Online Games
 </footer>
 
 </body>
