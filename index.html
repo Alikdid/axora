@@ -12,21 +12,21 @@ body{
 }
 
 header{
+  text-align:center;
   background:#111827;
   padding:20px;
-  text-align:center;
 }
 
 h1{
   margin:0;
-  font-size:50px;
+  font-size:40px;
 }
 
-.nav button{
+button{
   background:#1f2937;
   color:white;
   border:1px solid #374151;
-  padding:10px 14px;
+  padding:10px;
   margin:5px;
   border-radius:8px;
   cursor:pointer;
@@ -37,9 +37,9 @@ h1{
   margin:20px;
 }
 
-.search input{
-  width:300px;
+input{
   padding:10px;
+  width:250px;
   border-radius:8px;
   border:none;
 }
@@ -48,26 +48,16 @@ h1{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:15px;
-  padding:20px;
+  gap:10px;
+  padding:10px;
 }
 
 .game{
-  width:180px;
+  width:150px;
   background:#111827;
-  border:1px solid #374151;
+  padding:10px;
   border-radius:10px;
-  padding:15px;
   text-align:center;
-}
-
-.thumb{
-  font-size:40px;
-  margin-bottom:10px;
-}
-
-.hidden{
-  display:none;
 }
 </style>
 
@@ -78,75 +68,50 @@ h1{
 <header>
   <h1>AXORA</h1>
 
-  <div class="nav">
-    <button data-type="all">Home</button>
-    <button data-type="racing">Racing</button>
-    <button data-type="action">Action</button>
-    <button data-type="puzzle">Puzzle</button>
+  <div>
+    <button onclick="show('all')">Home</button>
+    <button onclick="show('racing')">Racing</button>
+    <button onclick="show('action')">Action</button>
+    <button onclick="show('puzzle')">Puzzle</button>
   </div>
 </header>
 
 <div class="search">
-  <input id="search" placeholder="Search games...">
+  <input id="search" oninput="search()" placeholder="Search...">
 </div>
 
 <div class="games">
 
-  <div class="game racing">
-    <div class="thumb">🚗</div>
-    Drift Boss
-  </div>
-
-  <div class="game racing">
-    <div class="thumb">🏎️</div>
-    Racing Game
-  </div>
-
-  <div class="game action">
-    <div class="thumb">🔫</div>
-    Action Game
-  </div>
-
-  <div class="game puzzle">
-    <div class="thumb">🧠</div>
-    Puzzle Game
-  </div>
+  <div class="game racing">🚗 Drift</div>
+  <div class="game racing">🏎️ Race</div>
+  <div class="game action">🔫 Action</div>
+  <div class="game puzzle">🧠 Puzzle</div>
 
 </div>
 
 <script>
+function show(type){
+  let games = document.getElementsByClassName("game");
 
-const buttons = document.querySelectorAll(".nav button");
-const games = document.querySelectorAll(".game");
-const search = document.getElementById("search");
+  for(let i=0;i<games.length;i++){
+    if(type === "all"){
+      games[i].style.display = "block";
+    } else {
+      games[i].style.display =
+        games[i].classList.contains(type) ? "block" : "none";
+    }
+  }
+}
 
-// FILTER (FIXED CLICK)
-buttons.forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    const type = btn.dataset.type;
+function search(){
+  let value = document.getElementById("search").value.toLowerCase();
+  let games = document.getElementsByClassName("game");
 
-    games.forEach(game=>{
-      if(type === "all"){
-        game.style.display = "block";
-      } else {
-        game.style.display = game.classList.contains(type)
-          ? "block"
-          : "none";
-      }
-    });
-  });
-});
-
-// SEARCH (WORKS)
-search.addEventListener("input", ()=>{
-  const value = search.value.toLowerCase();
-
-  games.forEach(game=>{
-    const text = game.innerText.toLowerCase();
-    game.style.display = text.includes(value) ? "block" : "none";
-  });
-});
-
+  for(let i=0;i<games.length;i++){
+    let text = games[i].innerText.toLowerCase();
+    games[i].style.display = text.includes(value) ? "block" : "none";
+  }
+}
 </script>
 
 </body>
